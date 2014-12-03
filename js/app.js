@@ -168,16 +168,16 @@ App.Item.reopenClass({
 
 App.Key.reopenClass({
   FIXTURES: [
-    { id: 101, name: 'One hundred and one',     value: 'Future famous novel',          item: 51 },
-    { id: 102, name: 'One hundred and two',     value: 'Something to think about',     item: 51 },
-    { id: 103, name: 'One hundred and three',   value: 'A storm in a teacup',          item: 53 },
-    { id: 104, name: 'One hundred and four',    value: 'Keep up the good work',        item: 54 },
-    { id: 105, name: 'One hundred and five',    value: 'One small step for man',       item: 55 },
-    { id: 106, name: 'One hundred and six',     value: 'Who can tell me more?',        item: 56 },
-    { id: 107, name: 'One hundred and seven',   value: 'That is the name of the game', item: 56 },
-    { id: 108, name: 'One hundred and eight',   value: 'Will be back tomorrow',        item: 56 },
-    { id: 109, name: 'One hundred and nine',    value: 'Sweep it under the rug',       item: 58 },
-    { id: 110, name: 'One hundred and ten',     value: 'You must be kidding me',       item: 58 },
-    { id: 111, name: 'One hundred and eleven',  value: 'An apple a day is healthy',    item: 59 }
+    { id: 101, name: 'Hundred one',    value: 'Future famous novel',          item: 51 },
+    { id: 102, name: 'Hundred two',    value: 'Something to think about',     item: 51 },
+    { id: 103, name: 'Hundred three',  value: 'A storm in a teacup',          item: 53 },
+    { id: 104, name: 'Hundred four',   value: 'Keep up the good work',        item: 54 },
+    { id: 105, name: 'Hundred five',   value: 'One small step for man',       item: 55 },
+    { id: 106, name: 'Hundred six',    value: 'Who can tell me more?',        item: 56 },
+    { id: 107, name: 'Hundred seven',  value: 'That is the name of the game', item: 56 },
+    { id: 108, name: 'Hundred eight',  value: 'Will be back tomorrow',        item: 56 },
+    { id: 109, name: 'Hundred nine',   value: 'Sweep it under the rug',       item: 58 },
+    { id: 110, name: 'Hundred ten',    value: 'You must be kidding me',       item: 58 },
+    { id: 111, name: 'Hundred eleven', value: 'An apple a day is healthy',    item: 59 }
   ]
 });
