@@ -2,3 +2,16 @@
 .ember-application {
     margin: 20px;
 }
+
+.keys-header {
+    background-color: lightgray;
+    color: black;
+}
+
+.keys-header .right-border {
+    border-right: 1px black solid;
+}
+
+.right-border {
+    border-right: 1px lightgray solid;
+}
