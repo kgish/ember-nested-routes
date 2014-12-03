@@ -2,6 +2,8 @@
 
 Example single page application built using [ember.js](http://www.emberjs.com) which is my favorite mvc javascript framework.
 
+![](images/screenshot.png?raw=true)
+
 ## Description
 
 A list of FOLDERS where each folder consists of one-to-many ITEMS (or zero) and each item consists of one or more KEYS (or zero) where each key is a name-value pair.
