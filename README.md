@@ -12,6 +12,8 @@ A list of FOLDERS where each folder consists of one-to-many ITEMS (or zero) and 
     /folders/:folder_id/items => items list for a given folder
     /folders/:folder_id/items/:item_id/keys => keys list for a given item of a given folder
 
+Choosing a top level folder will cascade down to include the first item if it exists followed by the keys if they exists by calling `this.transitionTo()` from the `afterModel` hooks.
+
 Uses fixtures as well as REST for demonstration purposes.
 
 ## Installation
