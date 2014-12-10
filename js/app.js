@@ -6,19 +6,34 @@ App = Ember.Application.create({
   LOG_RESOLVER: false
 });
 
-App.ApplicationAdapter = DS.FixtureAdapter.extend({});
+//App.ApplicationAdapter = DS.FixtureAdapter.extend({});
 
-/*
 App.ApplicationAdapter = DS.RESTAdapter.extend({});
 
 DS.RESTAdapter.reopen({
-  host: 'http://localhost:5000'
+  host: 'http://0.0.0.0:5000'
+});
+
+App.FoldersAdapter = DS.RESTAdapter.extend({
+  buildURL: function(type, id, record) {
+    var url = this._super(type, id, url);
+    console.log('FoldersAdapter: buildURL(type='+type+',id='+id+') => '+url);
+    return url;
+  }
 });
 
 App.FolderAdapter = DS.RESTAdapter.extend({
   buildURL: function(type, id, record) {
     var url = this._super(type, id, url);
     console.log('FolderAdapter: buildURL(type='+type+',id='+id+') => '+url);
+    return url;
+  }
+});
+
+App.ItemsAdapter = DS.RESTAdapter.extend({
+  buildURL: function(type, id, record) {
+    var url = this._super(type, id, url);
+    console.log('ItemsAdapter: buildURL(type='+type+',id='+id+') => '+url);
     return url;
   }
 });
@@ -31,14 +46,13 @@ App.ItemAdapter = DS.RESTAdapter.extend({
   }
 });
 
-App.KeyAdapter = DS.RESTAdapter.extend({
+App.KeysAdapter = DS.RESTAdapter.extend({
   buildURL: function(type, id, record) {
     var url = this._super(type, id, url);
-    console.log('KeyAdapter: buildURL(type='+type+',id='+id+') => '+url);
+    console.log('KeysAdapter: buildURL(type='+type+',id='+id+') => '+url);
     return url;
   }
 });
-*/
 
 App.Router.map(function() {
   this.resource('folders', function() {
@@ -54,23 +68,26 @@ App.Router.map(function() {
 
 App.IndexRoute = Ember.Route.extend({
   redirect: function() {
+    console.log('IndexRoute: redirect');
     this.transitionTo('folders');
   }
 });
 
 App.FoldersRoute = Ember.Route.extend({
   model: function() {
+    console.log('FoldersRoute: model');
     return this.store.find('folder');
   }
 });
 
 App.FoldersIndexRoute = Ember.Route.extend({
   afterModel: function() {
-    console.log('FoldersIndexRoute: afterModel');
     var firstObject = this.modelFor('folders').get('firstObject');
     if (firstObject) {
+      console.log('FoldersIndexRoute: afterModel => folder/firstObject');
       this.transitionTo('folder', firstObject);
     } else {
+      console.log('FoldersIndexRoute: afterModel => folders');
       this.transitionTo('folders');
     }
   }
@@ -78,11 +95,12 @@ App.FoldersIndexRoute = Ember.Route.extend({
 
 App.FolderIndexRoute = Ember.Route.extend({
   afterModel: function() {
-//    console.log('FolderIndexRoute: afterModel');
     var firstObject = this.modelFor('folder').get('firstObject');
     if (firstObject) {
+      console.log('FolderIndexRoute: afterModel => item/firstObject');
       this.transitionTo('item', firstObject);
     } else {
+      console.log('FolderIndexRoute: afterModel => items');
       this.transitionTo('items');
     }
   }
@@ -90,18 +108,19 @@ App.FolderIndexRoute = Ember.Route.extend({
 
 App.ItemsRoute = Ember.Route.extend({
   model: function() {
-//    console.log('ItemsRoute: model');
+    console.log('ItemsRoute: model');
     return this.modelFor('folder').get('items');
   }
 });
 
 App.ItemsIndexRoute = Ember.Route.extend({
   afterModel: function() {
-//    console.log('ItemsIndexRoute: afterModel');
     var firstObject = this.modelFor('items').get('firstObject');
     if (firstObject) {
+      console.log('ItemsIndexRoute: afterModel => item/firstObject');
       this.transitionTo('item', firstObject);
     } else {
+      console.log('ItemsIndexRoute: afterModel => items');
       this.transitionTo('items');
     }
   }
@@ -109,14 +128,14 @@ App.ItemsIndexRoute = Ember.Route.extend({
 
 App.ItemIndexRoute = Ember.Route.extend({
   afterModel: function() {
-//    console.log('ItemIndexRoute: afterModel');
+    console.log('ItemIndexRoute: afterModel');
     this.transitionTo('keys');
   }
 });
 
 App.KeysRoute = Ember.Route.extend({
   model: function() {
-//    console.log('KeysRoute: model');
+    console.log('KeysRoute: model');
     return this.modelFor('item').get('keys');
   }
 });
