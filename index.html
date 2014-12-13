@@ -61,18 +61,12 @@
         <h3>Keys :: {{length}}</h3>
         <div class="list-group">
           {{#if length}}
-            <li class="list-group-item keys-header">
-              <div class="row">
-                <div class="col-md-4 right-border"><strong>Name</strong></div>
-                <div class="col-md-6"><strong>Value</strong></div>
-              </div>
-            </li>
             {{#each}}
+              <li class="list-group-item keys-header">
+                {{name}}
+              </li>
               <li class="list-group-item">
-                <div class="row">
-                  <div class="col-md-4 right-border">{{name}}</div>
-                  <div class="col-md-6">{{value}}</div>
-                </div>
+                {{value}}
               </li>
             {{/each}}
           {{else}}
